@@ -78,6 +78,7 @@
 		85A335B91A98090A00EB0D1C /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A335B81A98090A00EB0D1C /* OverviewTableViewController.swift */; };
 		85A335BB1A980D6C00EB0D1C /* ChooseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */; };
 		85CFD1A21A984BFD00E1FE79 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */; };
+		85CFD1A41A98540300E1FE79 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFD1A31A98540300E1FE79 /* MessagesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +225,7 @@
 		85A335B81A98090A00EB0D1C /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
 		85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewController.swift; sourceTree = "<group>"; };
 		85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
+		85CFD1A31A98540300E1FE79 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 				85A335B81A98090A00EB0D1C /* OverviewTableViewController.swift */,
 				85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */,
 				85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */,
+				85CFD1A31A98540300E1FE79 /* MessagesViewController.swift */,
 				85A334D21A97F08C00EB0D1C /* Main.storyboard */,
 				85A334D51A97F08C00EB0D1C /* Images.xcassets */,
 				85A334D71A97F08C00EB0D1C /* LaunchScreen.xib */,
@@ -672,6 +675,7 @@
 				85A335891A97F50600EB0D1C /* JSQMessagesKeyboardController.m in Sources */,
 				85A335BB1A980D6C00EB0D1C /* ChooseTableViewController.swift in Sources */,
 				85A3358C1A97F50600EB0D1C /* JSQMessagesAvatarImageFactory.m in Sources */,
+				85CFD1A41A98540300E1FE79 /* MessagesViewController.swift in Sources */,
 				85A335A31A97F50600EB0D1C /* JSQMessagesInputToolbar.m in Sources */,
 				85A335B91A98090A00EB0D1C /* OverviewTableViewController.swift in Sources */,
 				85CFD1A21A984BFD00E1FE79 /* OverViewTableViewCell.swift in Sources */,
