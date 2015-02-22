@@ -27,11 +27,20 @@ class LoginSignUpViewController: PFLogInViewController, PFLogInViewControllerDel
     }
     
     func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+        
+        var installation = PFInstallation.currentInstallation()
+        installation["user"] = PFUser.currentUser()
+        installation.saveInBackgroundWithBlock(nil)
+    
         showChatOverView()
     }
     
     func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
         signUpController.dismissViewControllerAnimated(true, completion: { () -> Void in
+            var installation = PFInstallation.currentInstallation()
+            installation["user"] = PFUser.currentUser()
+            installation.saveInBackgroundWithBlock(nil)
+
             self.showChatOverView()
         })
     }

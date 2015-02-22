@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8569578D1A9A587000A7ADDD /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8569578C1A9A587000A7ADDD /* notification.caf */; };
 		85A334CF1A97F08B00EB0D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A334CE1A97F08B00EB0D1C /* AppDelegate.swift */; };
 		85A334D41A97F08C00EB0D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A334D21A97F08C00EB0D1C /* Main.storyboard */; };
 		85A334D61A97F08C00EB0D1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A334D51A97F08C00EB0D1C /* Images.xcassets */; };
@@ -93,6 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8569578C1A9A587000A7ADDD /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
 		85A334C91A97F08B00EB0D1C /* CommunityChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunityChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A334CD1A97F08B00EB0D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85A334CE1A97F08B00EB0D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		85A334E21A97F08C00EB0D1C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8569578C1A9A587000A7ADDD /* notification.caf */,
 				85A334E31A97F08C00EB0D1C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -572,6 +575,12 @@
 				TargetAttributes = {
 					85A334C81A97F08B00EB0D1C = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = P3NF73TYX4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					85A334DD1A97F08C00EB0D1C = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -619,6 +628,7 @@
 				85A334D41A97F08C00EB0D1C /* Main.storyboard in Resources */,
 				85A3359F1A97F50600EB0D1C /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
 				85A335811A97F50600EB0D1C /* JSQMessagesAssets.bundle in Resources */,
+				8569578D1A9A587000A7ADDD /* notification.caf in Resources */,
 				85A335A11A97F50600EB0D1C /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
 				85A334D91A97F08C00EB0D1C /* LaunchScreen.xib in Resources */,
 				85A334D61A97F08C00EB0D1C /* Images.xcassets in Resources */,
@@ -767,6 +777,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.ziyang.CommunityChat";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -809,6 +820,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.ziyang.CommunityChat";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -832,6 +844,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CommunityChat",
@@ -839,6 +853,7 @@
 				INFOPLIST_FILE = CommunityChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CommunityChat/CommunityChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -849,6 +864,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CommunityChat",
@@ -856,6 +873,7 @@
 				INFOPLIST_FILE = CommunityChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "CommunityChat/CommunityChat-Bridging-Header.h";
 			};
 			name = Release;

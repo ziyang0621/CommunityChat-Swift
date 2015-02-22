@@ -30,6 +30,8 @@ class MessagesViewController: JSQMessagesViewController {
         self.senderId = PFUser.currentUser().objectId
         self.senderDisplayName = PFUser.currentUser().username
         
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+        
         let selfUsername = PFUser.currentUser().username as NSString
         let incomingUsername = incomingUser.username as NSString
         
@@ -43,6 +45,16 @@ class MessagesViewController: JSQMessagesViewController {
         incomingBubbleImage = bubbleFactory.incomingMessagesBubbleImageWithColor(UIColor.grayColor())
         
         loadMessages()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadMessages", name: "reloadMessages", object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:"reloadMessages", object:nil)
     }
     
     
@@ -97,6 +109,18 @@ class MessagesViewController: JSQMessagesViewController {
         message.saveInBackgroundWithBlock { (success:Bool!, error:NSError!) -> Void in
             if error == nil {
                 self.loadMessages()
+                
+                let pushQuery = PFInstallation.query()
+                pushQuery.whereKey("user", equalTo: self.incomingUser)
+                
+                let push = PFPush()
+                push.setQuery(pushQuery)
+                
+                let pushDict = ["alert":text, "badge":"increment", "sound":"notification.caf"]
+                
+                push.setData(pushDict)
+                
+                push.sendPushInBackgroundWithBlock(nil)
                 
                 self.room["lastUpdate"] = NSDate()
                 self.room.saveInBackgroundWithBlock(nil)

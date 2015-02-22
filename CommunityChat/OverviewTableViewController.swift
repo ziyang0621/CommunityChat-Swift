@@ -31,6 +31,29 @@ class OverviewTableViewController: UITableViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "displayPushMessage:", name: "displayMessage", object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name:"displayMessage", object:nil)
+    }
+    
+    func displayPushMessage(notification:NSNotification) {
+        let notificationDict = notification.object as NSDictionary
+        
+        if let aps = notificationDict.objectForKey("aps") as? NSDictionary {
+            let messageText = aps.objectForKey("alert") as String
+            
+            let alert = UIAlertController(title: "New Message", message: messageText, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Thanks...", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     func loadData() {
         rooms = [PFObject]()
         users = [PFUser]()

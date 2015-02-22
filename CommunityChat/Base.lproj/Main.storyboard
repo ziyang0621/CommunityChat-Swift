@@ -20,7 +20,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="hZ2-RC-3uJ"/>
                     <connections>
-                        <segue destination="9QD-uu-Fm3" kind="show" id="Znd-8f-bGd"/>
+                        <segue destination="9QD-uu-Fm3" kind="show" identifier="showOverview" id="Znd-8f-bGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -157,7 +157,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DyS-Fw-bu3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="DyS-Fw-bu3">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DyS-Fw-bu3" id="q4V-eR-2EH">
                                     <autoresizingMask key="autoresizingMask"/>
