@@ -65,6 +65,9 @@ class ChooseTableViewController: PFQueryTableViewController, UISearchBarDelegate
             var room = PFObject(className: "Room")
             
             // Setup the MessageViewController
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let messagesVC = sb.instantiateViewControllerWithIdentifier("MessagesViewController") as MessagesViewController
+            
             
             let pred = NSPredicate(format: "user1 = %@ AND user2 = %@ OR user1 = %@ AND user2 = %@", user1, user2, user2, user1)
             
@@ -75,6 +78,10 @@ class ChooseTableViewController: PFQueryTableViewController, UISearchBarDelegate
                     if results.count > 0 { // room already existing
                         room = results.last as PFObject
                         // Setup MessageViewController and Push to the MesasgeVC
+                        messagesVC.room = room
+                        messagesVC.incomingUser = user2
+                        self.navigationController?.pushViewController(messagesVC, animated: true)
+                        
                     } else { // create a new room
                         room["user1"] = user1
                         room["user2"] = user2
@@ -82,6 +89,9 @@ class ChooseTableViewController: PFQueryTableViewController, UISearchBarDelegate
                         room.saveInBackgroundWithBlock({ (success:Bool!, error:NSError!) -> Void in
                             if error == nil {
                                 // Setup MessageViewController and Push to the MessageVC
+                                messagesVC.room = room
+                                messagesVC.incomingUser = user2
+                                self.navigationController?.pushViewController(messagesVC, animated: true)
                             }
                         })
                     }

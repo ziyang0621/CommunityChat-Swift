@@ -79,6 +79,7 @@
 		85A335BB1A980D6C00EB0D1C /* ChooseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */; };
 		85CFD1A21A984BFD00E1FE79 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */; };
 		85CFD1A41A98540300E1FE79 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFD1A31A98540300E1FE79 /* MessagesViewController.swift */; };
+		85CFD1AB1A999FAC00E1FE79 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 85CFD1AA1A999FAC00E1FE79 /* NSDate+Utilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +227,8 @@
 		85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseTableViewController.swift; sourceTree = "<group>"; };
 		85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 		85CFD1A31A98540300E1FE79 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		85CFD1A91A999FAC00E1FE79 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		85CFD1AA1A999FAC00E1FE79 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +358,8 @@
 		85A335131A97F4C700EB0D1C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				85CFD1A91A999FAC00E1FE79 /* NSDate+Utilities.h */,
+				85CFD1AA1A999FAC00E1FE79 /* NSDate+Utilities.m */,
 				85A335AC1A97F55B00EB0D1C /* JSQSystemSoundPlayer.h */,
 				85A335AD1A97F55B00EB0D1C /* JSQSystemSoundPlayer.m */,
 				85A335141A97F50500EB0D1C /* JSQMessagesViewController */,
@@ -668,6 +673,7 @@
 				85A335A41A97F50600EB0D1C /* JSQMessagesLabel.m in Sources */,
 				85A335981A97F50600EB0D1C /* JSQMessagesBubbleImage.m in Sources */,
 				85A3358D1A97F50600EB0D1C /* JSQMessagesBubbleImageFactory.m in Sources */,
+				85CFD1AB1A999FAC00E1FE79 /* NSDate+Utilities.m in Sources */,
 				85A335AA1A97F50600EB0D1C /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
 				85A335841A97F50600EB0D1C /* NSString+JSQMessages.m in Sources */,
 				85A3358F1A97F50600EB0D1C /* JSQMessagesTimestampFormatter.m in Sources */,

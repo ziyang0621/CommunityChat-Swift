@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1766" y="464"/>
         </scene>
-        <!--View Controller-->
+        <!--Messages View Controller-->
         <scene sceneID="Zau-Zm-0Oh">
             <objects>
-                <viewController id="7WK-5G-mMh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MessagesViewController" id="7WK-5G-mMh" customClass="MessagesViewController" customModule="CommunityChat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lwf-NT-Kz8"/>
                         <viewControllerLayoutGuide type="bottom" id="cES-cf-bPc"/>
