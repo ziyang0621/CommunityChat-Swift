@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8569578D1A9A587000A7ADDD /* notification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8569578C1A9A587000A7ADDD /* notification.caf */; };
+		8569578F1A9A85FF00A7ADDD /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569578E1A9A85FF00A7ADDD /* SignUpTableViewController.swift */; };
 		85A334CF1A97F08B00EB0D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A334CE1A97F08B00EB0D1C /* AppDelegate.swift */; };
 		85A334D41A97F08C00EB0D1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A334D21A97F08C00EB0D1C /* Main.storyboard */; };
 		85A334D61A97F08C00EB0D1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A334D51A97F08C00EB0D1C /* Images.xcassets */; };
@@ -95,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		8569578C1A9A587000A7ADDD /* notification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = notification.caf; sourceTree = "<group>"; };
+		8569578E1A9A85FF00A7ADDD /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		85A334C91A97F08B00EB0D1C /* CommunityChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunityChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A334CD1A97F08B00EB0D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85A334CE1A97F08B00EB0D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				85A334F81A97F0D900EB0D1C /* Frameworks */,
 				85A334CE1A97F08B00EB0D1C /* AppDelegate.swift */,
 				85A335B21A98063E00EB0D1C /* LoginSignUpViewController.swift */,
+				8569578E1A9A85FF00A7ADDD /* SignUpTableViewController.swift */,
 				85A335B81A98090A00EB0D1C /* OverviewTableViewController.swift */,
 				85CFD1A11A984BFD00E1FE79 /* OverViewTableViewCell.swift */,
 				85A335BA1A980D6C00EB0D1C /* ChooseTableViewController.swift */,
@@ -681,6 +684,7 @@
 				85A335991A97F50600EB0D1C /* JSQPhotoMediaItem.m in Sources */,
 				85A335861A97F50600EB0D1C /* UIDevice+JSQMessages.m in Sources */,
 				85A335A41A97F50600EB0D1C /* JSQMessagesLabel.m in Sources */,
+				8569578F1A9A85FF00A7ADDD /* SignUpTableViewController.swift in Sources */,
 				85A335981A97F50600EB0D1C /* JSQMessagesBubbleImage.m in Sources */,
 				85A3358D1A97F50600EB0D1C /* JSQMessagesBubbleImageFactory.m in Sources */,
 				85CFD1AB1A999FAC00E1FE79 /* NSDate+Utilities.m in Sources */,

@@ -13,13 +13,17 @@ class LoginSignUpViewController: PFLogInViewController, PFLogInViewControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        self.signUpController.delegate = self
+       // self.signUpController.delegate = self
         
         self.logInView.logo = UIImageView(image: UIImage(named: "logo"))
-        self.signUpController.signUpView.logo = UIImageView(image: UIImage(named: "logo"))
+     //   self.signUpController.signUpView.logo = UIImageView(image: UIImage(named: "logo"))
         
         self.logInView.logo.contentMode = .Center
-        self.signUpController.signUpView.logo.contentMode = .Center
+       // self.signUpController.signUpView.logo.contentMode = .Center
+        
+        self.logInView.signUpButton.removeTarget(self, action: nil, forControlEvents: .AllEvents)
+    
+        self.logInView.signUpButton.addTarget(self, action: "displaySignUp", forControlEvents: .TouchUpInside)
         
         if PFUser.currentUser() != nil {
             showChatOverView()
@@ -35,15 +39,15 @@ class LoginSignUpViewController: PFLogInViewController, PFLogInViewControllerDel
         showChatOverView()
     }
     
-    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
-        signUpController.dismissViewControllerAnimated(true, completion: { () -> Void in
-            var installation = PFInstallation.currentInstallation()
-            installation["user"] = PFUser.currentUser()
-            installation.saveInBackgroundWithBlock(nil)
-
-            self.showChatOverView()
-        })
-    }
+//    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
+//        signUpController.dismissViewControllerAnimated(true, completion: { () -> Void in
+//            var installation = PFInstallation.currentInstallation()
+//            installation["user"] = PFUser.currentUser()
+//            installation.saveInBackgroundWithBlock(nil)
+//
+//            self.showChatOverView()
+//        })
+//    }
     
     func showChatOverView() {
         
@@ -58,6 +62,14 @@ class LoginSignUpViewController: PFLogInViewController, PFLogInViewControllerDel
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func displaySignUp() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        let signUpVC = sb.instantiateViewControllerWithIdentifier("SignUpVC") as SignUpTableViewController
+        
+        self.navigationController?.pushViewController(signUpVC, animated: true)
     }
    
 }
