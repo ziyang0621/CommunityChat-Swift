@@ -170,7 +170,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" systemItem="done" id="yeu-Ws-zb1">
                             <connections>
-                                <action selector="completeSIgnUp:" destination="wqL-2z-JOK" id="tP4-A7-e23"/>
+                                <action selector="completeSignUp:" destination="wqL-2z-JOK" id="52K-pF-5Fj"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -206,13 +206,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVU-Ii-iyl">
-                                            <rect key="frame" x="21" y="23" width="427" height="21"/>
+                                            <rect key="frame" x="85" y="19" width="363" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3u-3B-QKv">
-                                            <rect key="frame" x="21" y="45" width="427" height="18"/>
+                                            <rect key="frame" x="85" y="42" width="363" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="zUc-Zl-pp3"/>
                                             </constraints>
@@ -229,26 +229,49 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummyImage" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-bF-gXt">
+                                            <rect key="frame" x="17" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="9ju-k1-K2a"/>
+                                                <constraint firstAttribute="height" constant="60" id="gQm-cB-wSy"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-J7-gVL">
+                                            <rect key="frame" x="0.0" y="0.0" width="8" height="79"/>
+                                            <color key="backgroundColor" red="0.29019607843137257" green="0.72941176470588232" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="8" id="f8w-SE-rlR"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aVU-Ii-iyl" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="topMargin" constant="15" id="2eA-1W-Kmk"/>
+                                        <constraint firstItem="tCe-J7-gVL" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="topMargin" constant="-8" id="1IZ-1k-sDe"/>
+                                        <constraint firstAttribute="centerY" secondItem="6Zc-bF-gXt" secondAttribute="centerY" constant="-0.5" id="1qa-9j-9np"/>
+                                        <constraint firstItem="aVU-Ii-iyl" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="topMargin" constant="11" id="2eA-1W-Kmk"/>
                                         <constraint firstItem="F3u-3B-QKv" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leadingMargin" constant="13" id="3Vc-Jq-qBk"/>
+                                        <constraint firstItem="F3u-3B-QKv" firstAttribute="leading" secondItem="6Zc-bF-gXt" secondAttribute="trailing" constant="8" id="CHN-Ou-fbW"/>
                                         <constraint firstItem="aVU-Ii-iyl" firstAttribute="width" secondItem="F3u-3B-QKv" secondAttribute="width" id="HPY-kU-QYN"/>
                                         <constraint firstItem="aVU-Ii-iyl" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leadingMargin" constant="13" id="JoJ-P1-e0O"/>
                                         <constraint firstItem="F3u-3B-QKv" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leading" constant="21" id="LDw-iz-Tuh"/>
                                         <constraint firstItem="aVU-Ii-iyl" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="top" constant="23" id="Ssi-EE-xlF"/>
                                         <constraint firstItem="tlh-sF-3dy" firstAttribute="leading" secondItem="aVU-Ii-iyl" secondAttribute="trailing" constant="8" id="WfF-zm-nzt"/>
+                                        <constraint firstItem="6Zc-bF-gXt" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leadingMargin" constant="9" id="a8q-PZ-uoU"/>
                                         <constraint firstItem="tlh-sF-3dy" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="topMargin" constant="15" id="b3c-a5-sso"/>
                                         <constraint firstItem="aVU-Ii-iyl" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leading" constant="21" id="dNw-7w-vtm"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tCe-J7-gVL" secondAttribute="bottom" constant="-8" id="e7B-2X-CaA"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="tlh-sF-3dy" secondAttribute="trailing" constant="8" id="i99-EF-tWG"/>
                                         <constraint firstItem="F3u-3B-QKv" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leading" constant="21" id="k4o-5K-eUk"/>
-                                        <constraint firstItem="F3u-3B-QKv" firstAttribute="top" secondItem="aVU-Ii-iyl" secondAttribute="bottom" constant="1" id="otP-FA-SYT"/>
+                                        <constraint firstItem="F3u-3B-QKv" firstAttribute="top" secondItem="aVU-Ii-iyl" secondAttribute="bottom" constant="2" id="otP-FA-SYT"/>
+                                        <constraint firstItem="aVU-Ii-iyl" firstAttribute="leading" secondItem="6Zc-bF-gXt" secondAttribute="trailing" constant="8" id="pRk-CW-mcP"/>
                                         <constraint firstItem="F3u-3B-QKv" firstAttribute="top" secondItem="NlP-tF-bG0" secondAttribute="top" constant="45" id="qIC-Qv-21e"/>
+                                        <constraint firstItem="tCe-J7-gVL" firstAttribute="leading" secondItem="NlP-tF-bG0" secondAttribute="leadingMargin" constant="-8" id="qVb-0k-NEI"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="JoJ-P1-e0O"/>
                                             <exclude reference="Ssi-EE-xlF"/>
                                             <exclude reference="dNw-7w-vtm"/>
+                                            <exclude reference="3Vc-Jq-qBk"/>
                                             <exclude reference="LDw-iz-Tuh"/>
                                             <exclude reference="k4o-5K-eUk"/>
                                             <exclude reference="qIC-Qv-21e"/>
@@ -259,6 +282,8 @@
                                     <outlet property="dateLabel" destination="tlh-sF-3dy" id="Uqg-IJ-Pch"/>
                                     <outlet property="lastMessageLabel" destination="F3u-3B-QKv" id="bCN-PV-tKP"/>
                                     <outlet property="nameLabel" destination="aVU-Ii-iyl" id="Koo-b8-7hg"/>
+                                    <outlet property="newMessageIndicator" destination="tCe-J7-gVL" id="zsP-Ad-QoZ"/>
+                                    <outlet property="profileImage" destination="6Zc-bF-gXt" id="WBB-yr-5AE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -273,9 +298,9 @@
                                 <segue destination="kcL-Km-wN3" kind="show" id="ZRz-E4-U0o"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem title="Logout" id="eUO-aK-AbF">
+                        <barButtonItem title="Settings" id="eUO-aK-AbF">
                             <connections>
-                                <action selector="logout:" destination="9QD-uu-Fm3" id="gsw-Kt-Ftx"/>
+                                <action selector="displaySettings:" destination="9QD-uu-Fm3" id="KnL-yE-sbr"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>

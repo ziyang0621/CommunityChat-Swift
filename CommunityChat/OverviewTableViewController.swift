@@ -51,6 +51,11 @@ class OverviewTableViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: "Thanks...", style: UIAlertActionStyle.Default, handler: nil))
             
             self.presentViewController(alert, animated: true, completion: nil)
+            
+            // Refresh table view when new push message comes (added by Ziyang)
+//            if PFUser.currentUser() != nil {
+//                loadData()
+//            }
         }
     }
     
@@ -106,6 +111,7 @@ class OverviewTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as OverViewTableViewCell
+        cell.newMessageIndicator.hidden = true
         
         let targetUser = users[indexPath.row]
         
@@ -113,6 +119,15 @@ class OverviewTableViewController: UITableViewController {
         
         let user1 = PFUser.currentUser()
         let user2 = users[indexPath.row]
+        
+        let profileImageFile = user2["profileImage"] as PFFile
+        
+        profileImageFile.getDataInBackgroundWithBlock { (data:NSData!, error:NSError!) -> Void in
+            if error == nil {
+                cell.profileImage.image = UIImage(data:data)
+            }
+        }
+        
         
         let pred = NSPredicate(format: "user1 = %@ AND user2 = %@ OR user1 = %@ AND user2 = %@", user1, user2, user2, user1)
         
@@ -123,6 +138,19 @@ class OverviewTableViewController: UITableViewController {
                 if results.count > 0 {
                     let messageQuery = PFQuery(className: "Message")
                     let room = results.last as PFObject
+                    
+                    // New Message available
+                    let unreadQuery = PFQuery(className: "UnreadMessage")
+                    unreadQuery.whereKey("user", equalTo: PFUser.currentUser())
+                    unreadQuery.whereKey("room", equalTo: room)
+                    
+                    unreadQuery.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
+                        if error == nil {
+                            if results.count > 0 {
+                                cell.newMessageIndicator.hidden = false
+                            }
+                        }
+                    })
                     
                     messageQuery.whereKey("room", equalTo: room)
                     messageQuery.limit = 1
@@ -179,6 +207,22 @@ class OverviewTableViewController: UITableViewController {
                 messagesVC.room = room
                 messagesVC.incomingUser = user2
                 
+                let unreadQuery = PFQuery(className: "UnreadMessage")
+                unreadQuery.whereKey("user", equalTo: PFUser.currentUser())
+                unreadQuery.whereKey("room", equalTo: room)
+                
+                unreadQuery.findObjectsInBackgroundWithBlock({ (results:[AnyObject]!, error:NSError!) -> Void in
+                    if error == nil {
+                        if results.count > 0 {
+                            let unreadMessages = results as [PFObject]
+                            
+                            for msg in unreadMessages {
+                                msg.deleteInBackgroundWithBlock(nil)
+                            }
+                        }
+                    }
+                })
+                
                 self.navigationController?.pushViewController(messagesVC, animated: true)
             }
         }
@@ -188,9 +232,28 @@ class OverviewTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func logout(sender: AnyObject) {
+    
+    func logout() {
         PFUser.logOut()
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+
+    @IBAction func displaySettings(sender: AnyObject) {
+        
+        let settingsActionSheet = UIAlertController(title: "Settings", message: "Choose what you want to do", preferredStyle: .ActionSheet)
+        settingsActionSheet.addAction(UIAlertAction(title: "Change Profille", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            
+            let profileVC = sb.instantiateViewControllerWithIdentifier("SignUpVC") as SignUpTableViewController
+            profileVC.change = true
+            
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }))
+        settingsActionSheet.addAction(UIAlertAction(title: "Logout", style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) -> Void in
+            self.logout()
+        }))
+        settingsActionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(settingsActionSheet, animated: true, completion: nil)
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class OverViewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var newMessageIndicator: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!

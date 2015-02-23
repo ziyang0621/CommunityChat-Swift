@@ -18,14 +18,37 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+    
+    var change = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if change {
+            doneBarButtonItem.action = "changeProfile"
+            
+            usernameTextField.text = PFUser.currentUser().username
+            emailTextField.text = PFUser.currentUser().email
+            firstNameTextField.text = PFUser.currentUser()["firstName"] as String
+            lastNameTextField.text = PFUser.currentUser()["lastName"] as String
+            
+            passwordTextField.enabled = false
+            repeatPasswordTextField.enabled = false
+            
+            let profileImageFile = PFUser.currentUser()["profileImage"] as PFFile
+            
+            profileImageFile.getDataInBackgroundWithBlock({ (data:NSData!, error:NSError!) -> Void in
+                if error == nil {
+                    self.profileImageView.image = UIImage(data:data)
+                }
+            })
+        }
 
        self.navigationItem.rightBarButtonItem = doneBarButtonItem
     }
 
   
-    @IBAction func completeSIgnUp(sender: AnyObject) {
+    @IBAction func completeSignUp(sender: AnyObject) {
         let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image, 0.6)
         let profileImageFile = PFFile(data: profileImageData)
         
@@ -125,6 +148,35 @@ class SignUpTableViewController: UITableViewController, UIImagePickerControllerD
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func changeProfile() {
+        let profileImageData = UIImageJPEGRepresentation(self.profileImageView.image, 0.6)
+        let profileImageFile = PFFile(data: profileImageData)
+        
+        if usernameTextField.text != "" && emailTextField.text != ""  && firstNameTextField.text != "" &&
+            lastNameTextField.text != "" {
+            
+                PFUser.currentUser().username = usernameTextField.text
+                PFUser.currentUser().email = emailTextField.text
+                
+                PFUser.currentUser()["firstName"] = firstNameTextField.text
+                PFUser.currentUser()["lastName"] = lastNameTextField.text
+                PFUser.currentUser()["profileImage"] = profileImageFile
+                
+                PFUser.currentUser().saveInBackgroundWithBlock({ (success:Bool!, error:NSError!) -> Void in
+                    if error == nil {
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
+                })
+                
+        } else {
+            let alert = UIAlertController(title: "Missing information", message: "Please fill out all items", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func showChatOverView() {
